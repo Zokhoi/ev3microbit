@@ -1,0 +1,36 @@
+countA = 0
+countB = 0
+timeA = 0
+timeB = 0
+test = [ "Track A", "Track B" ]
+
+def compete():
+  while countA<2 and countB<2:
+    if ev3-button1 pressed then countA=1
+    if ev3-button2 pressed then countB=1
+    if ev3-button3 pressed then countA=2
+    if ev3-button4 pressed then countB=2
+    sleep 0.1s
+    if countA==1 then timeA+=0.01
+    if countB==1 then timeB+=0.01
+  for i in range(5):
+    microbit-display( test[0]+timeA )
+    print( test[0]+timeA )
+    microbit-display( test[1]+timeB )
+    print( test[1]+timeB )
+
+def timer():
+  timer = 0
+  tens = 0
+  count = 1
+  while count<2:
+    sleep 0.2s
+    tens+=0.2
+    if tens==1:
+      tens=0
+      timer+=1
+    if ev3-button1 pressed then count+=1
+  microbit-display( timer, tens )
+  print( timer, tens )
+
+on ev3-button1 pressed: timer()
