@@ -44,7 +44,7 @@ numbytearray=[
     
 start_touch=TouchSensor(INPUT_1)
 end_touch=TouchSensor(INPUT_2)
-timer=StopWatch
+timer=StopWatch()
 
 
 while True:

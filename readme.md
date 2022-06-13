@@ -4,6 +4,13 @@ Most of this repo follows [JorgePe's guide](https://github.com/jorgepe/microbit)
 
 JorgePe's bluetooth hex file for micro:bit is included in `./mbit/` directory.
 
+Dependencies are listed in `requirements.txt`.
+
+For `python3-ev3dev2` on ev3, please install the package via apt-get instead of pip3.
+
+If `pygatt` failed to install because easy_install cannot connect to the server with ssl,
+try manually installing its dependencies: `pyserial`, `enum-compat`, `coverage`, `nose`
+
 Use
 ```sh
 hciconfig
