@@ -59,7 +59,7 @@ while True:
         if end_touch.is_pressed:
             if timer.is_started:
                 timer.stop()
-                time=timer.value_secs()
+                time=timer.value_secs
                 break
 
 
