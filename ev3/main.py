@@ -27,7 +27,7 @@ except:
     print("Bluetooth connection failed!")
 
 
-
+# Example pixel array for digits 0-9
 numbytearray=[
     bytearray([0x06,0x09,0x09,0x09,0x06]),
     bytearray([0x04,0x0C,0x04,0x04,0x1E]),
@@ -45,16 +45,17 @@ numbytearray=[
 start_touch=TouchSensor(INPUT_1)
 end_touch=TouchSensor(INPUT_2)
 timer=StopWatch()
+time = 0
 
 
 while True:
     bytearray(b'\xea\x80\x80READY\xde\xb4')
     while True:
         
-        if start_touch.is_pressed():
+        if start_touch.is_pressed:
             timer.start()
         
-        if end_touch.is_pressed():
+        if end_touch.is_pressed:
             timer.stop()
             time=timer.value_secs()
             break
@@ -80,10 +81,7 @@ while True:
     while True:
         buttonA = device.char_read("e95dda90-251d-470a-a062-fa1922dfa9a8")
         buttonB = device.char_read("e95dda91-251d-470a-a062-fa1922dfa9a8")
-        if buttonA == bytearray(b'\x01'):
-            timer.reset()
-            break
-        elif buttonB == bytearray(b'\x01'):
+        if buttonA == bytearray(b'\x01') or buttonB == bytearray(b'\x01'):
             timer.reset()
             break
 
