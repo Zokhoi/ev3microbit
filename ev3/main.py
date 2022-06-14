@@ -49,16 +49,18 @@ time = 0
 
 
 while True:
-    bytearray(b'\xea\x80\x80READY\xde\xb4')
+    device.char_write_handle(0x30, bytearray(b'\xea\x80\x80READY\xde\xb4'))
     while True:
         
         if start_touch.is_pressed:
-            timer.start()
+            if not timer.is_started:
+                timer.start()
         
         if end_touch.is_pressed:
-            timer.stop()
-            time=timer.value_secs()
-            break
+            if timer.is_started:
+                timer.stop()
+                time=timer.value_secs()
+                break
 
 
         sleep(0.1)
